@@ -13,9 +13,9 @@ module.exports = async (req, res) => {
   }
 
   if (!query.src) {
-    const exampleUrl = 'https://localhost:3000?image=http://fakeimg.pl/300/'
+    const exampleUrl = 'https://localhost:3000?src=http://fakeimg.pl/300/'
     const error = new Error(
-      `You must query for a specific username using a URL like ${exampleUrl}`
+      `You must query for a specific source image using a URL like ${exampleUrl}`
     )
     error.statusCode = 400
     throw error
