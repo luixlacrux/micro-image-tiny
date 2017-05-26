@@ -3,6 +3,10 @@ const { send, json } = require('micro')
 
 const imgProcessor = require('./lib/imgProcessor')
 
+const baseUrl = process.env.NODE_ENV !== 'production'
+  ? 'http://localhost:3000'
+  : 'https://micro-image-tiny.now.sh'
+
 module.exports = async (req, res) => {
   const { query, pathname } = parse(req.url, true) || {}
 
@@ -13,7 +17,7 @@ module.exports = async (req, res) => {
   }
 
   if (!query.src) {
-    const exampleUrl = 'https://localhost:3000?src=http://fakeimg.pl/300/'
+    const exampleUrl = `${baseUrl}?src=http://fakeimg.pl/300/`
     const error = new Error(
       `You must query for a specific source image using a URL like ${exampleUrl}`
     )
