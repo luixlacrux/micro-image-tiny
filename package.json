@@ -1,0 +1,15 @@
+{
+  "name": "micro-image-tiny",
+  "version": "0.1.0",
+  "description": "A node microservice for images processing",
+  "main": "index.js",
+  "author": "Luis Lacruz <luixlacrux18@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "micro"
+  },
+  "dependencies": {
+    "jimp": "^0.2.28",
+    "micro": "^7.3.3"
+  }
+}
