@@ -1,7 +1,7 @@
 {
   "name": "micro-image-tiny",
   "version": "0.1.0",
-  "description": "A node microservice for images processing",
+  "description": "A microservice for images processing",
   "main": "index.js",
   "scripts": {
     "start": "micro"
