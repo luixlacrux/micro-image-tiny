@@ -1,5 +1,5 @@
 const { parse } = require('url')
-const { send, json } = require('micro')
+const { json } = require('micro')
 
 const imgProcessor = require('./lib/imgProcessor')
 
@@ -25,7 +25,9 @@ module.exports = async (req, res) => {
     throw error
   }
 
-  const newImage = await imgProcessor(query)
-  res.setHeader('Content-Type', 'text/html')
-  send(res, 200, `<img src="${newImage}"/>`)
+  const mimetype = query.type || 'image/jpeg'
+  const imageBuffer = await imgProcessor(query)
+
+  res.setHeader('Content-Type', mimetype)
+  res.end(imageBuffer, 'binary')
 }
